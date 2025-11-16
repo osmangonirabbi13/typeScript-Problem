@@ -1,4 +1,6 @@
-const formatValue = (value: string | number | boolean) : string | number | boolean => {
+const formatValue = (
+  value: string | number | boolean
+): string | number | boolean => {
   if (typeof value === "string") {
     return value.toUpperCase();
   } else if (typeof value === "number") {
@@ -8,5 +10,11 @@ const formatValue = (value: string | number | boolean) : string | number | boole
   }
 };
 
-
-
+const getLength = (value: string | any[]) => {
+  if (typeof value === "string") {
+    return value.length;
+  }
+  if (Array.isArray(value)) {
+    return value.length;
+  }
+};
