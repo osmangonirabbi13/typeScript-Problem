@@ -28,10 +28,10 @@ class Person {
   }
 
   getDetails() {
-    return `Name: ${this.name} , Age: ${this.age}`;
+    return `'Name: ${this.name} , Age: ${this.age}'`;
   }
 }
-
+ 
 type Item = {
   title: string;
   rating: number;
@@ -91,7 +91,6 @@ const getUniqueValues = <T>(arr1: T[], arr2: T[]): T[] => {
     }
     return false;
   };
-
   for (let i = 0; i < arr1.length; i++) {
     if (!exists(arr1[i])) {
       result.push(arr1[i]);
