@@ -19,17 +19,17 @@ const getLength = (value: string | any[]) => {
   }
 };
 
-class Person{
-    name : string;
-    age : number;
-    constructor(name: string , age: number){
-        this.name =name
-        this.age = age
-    }
+class Person {
+  name: string;
+  age: number;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
 
-    getDetails(){
-       return (`Name: ${this.name} , Age: ${this.age}`)
-    }
+  getDetails() {
+    return `Name: ${this.name} , Age: ${this.age}`;
+  }
 }
 
 type Item = {
@@ -38,17 +38,16 @@ type Item = {
 };
 
 const filterByRating = (items: Item[]): Item[] => {
-  const result: Item[] = []; 
+  const result: Item[] = [];
 
   for (const item of items) {
     if (item.rating >= 4) {
-      result.push(item); 
+      result.push(item);
     }
   }
 
   return result;
 };
-
 
 type User = {
   id: number;
@@ -62,9 +61,25 @@ const filterActiveUsers = (users: User[]): User[] => {
 
   for (const user of users) {
     if (user.isActive === true) {
-      activeUsers.push(user); 
+      activeUsers.push(user);
     }
   }
 
   return activeUsers;
 };
+
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+const printBookDetails = (book: Book): void => {
+  const available = book.isAvailable ? "Yes" : "No";
+
+  console.log(
+    `Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${available}`
+  );
+};
+
