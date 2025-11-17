@@ -83,27 +83,36 @@ const printBookDetails = (book: Book): void => {
   );
 };
 
+
 const getUniqueValues = <T>(arr1: T[], arr2: T[]): T[] => {
   const result: T[] = [];
+  let idx = 0; 
+
   const exists = (value: T): boolean => {
-    for (let i = 0; i < result.length; i++) {
+    for (let i = 0; i < idx; i++) {
       if (result[i] === value) return true;
     }
     return false;
   };
+
   for (let i = 0; i < arr1.length; i++) {
     if (!exists(arr1[i])) {
-      result.push(arr1[i]);
+      result[idx] = arr1[i];
+      idx++; 
     }
   }
+
   for (let i = 0; i < arr2.length; i++) {
     if (!exists(arr2[i])) {
-      result.push(arr2[i]);
+      result[idx] = arr2[i];
+      idx++;
     }
   }
 
   return result;
 };
+
+
 
 type Product = {
   name: string;
