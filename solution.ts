@@ -38,6 +38,33 @@ type Item = {
 };
 
 const filterByRating = (items: Item[]): Item[] => {
-  return items.filter(item => item.rating >= 4);
+  const result: Item[] = []; 
+
+  for (const item of items) {
+    if (item.rating >= 4) {
+      result.push(item); 
+    }
+  }
+
+  return result;
 };
 
+
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+};
+
+const filterActiveUsers = (users: User[]): User[] => {
+  const activeUsers: User[] = [];
+
+  for (const user of users) {
+    if (user.isActive === true) {
+      activeUsers.push(user); 
+    }
+  }
+
+  return activeUsers;
+};
