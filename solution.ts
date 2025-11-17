@@ -92,17 +92,38 @@ const getUniqueValues = <T>(arr1: T[], arr2: T[]): T[] => {
     return false;
   };
 
-  for (let i = 0 ; i < arr1.length ; i++){
-    if(!exists(arr1[i])){
-      result.push(arr1[i])
+  for (let i = 0; i < arr1.length; i++) {
+    if (!exists(arr1[i])) {
+      result.push(arr1[i]);
     }
   }
-  for (let i = 0 ; i < arr2.length ; i++){
-     if(!exists(arr2[i])){
-      result.push(arr2[i])
-     }
+  for (let i = 0; i < arr2.length; i++) {
+    if (!exists(arr2[i])) {
+      result.push(arr2[i]);
+    }
   }
 
   return result;
 };
 
+type Product = {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+};
+
+function calculateTotalPrice(products: Product[]): number {
+  const productTotals = products.map((product) => {
+    const total = product.price * product.quantity;
+    const discountAmount = product.discount
+      ? (total * product.discount) / 100
+      : 0;
+    return total - discountAmount;
+  });
+  const totalPrice = productTotals.reduce(
+    (sum, productTotal) => sum + productTotal,
+    0
+  );
+  return totalPrice;
+}
